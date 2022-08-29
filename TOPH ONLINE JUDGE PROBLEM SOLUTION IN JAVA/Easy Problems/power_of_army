@@ -1,0 +1,30 @@
+import java.util.Scanner;
+public class Solution{
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
+        int T,N,i,j,min,t,d,max_num,min_num,power_of_army;
+        T=input.nextInt();
+         for(t=0;t<T;t++){
+             N=input.nextInt();
+             int array[]=new int[N];
+             for(d=0;d<N;d++){
+                 array[d]=input.nextInt();
+             }
+             for(i=0;i<array.length-1;i++){
+                 min=i;
+                 for(j=i+1;j<array.length;j++){
+                     if(array[j]<array[min]){
+                         min=j;
+                     }
+                 }if(i!=min){
+                    array[min]=(array[min]+array[i])-(array[i]=array[min]);
+                 }
+             }
+             max_num=array[N-1];
+             min_num=array[0];
+             power_of_army=max_num-min_num;
+             System.out.println(power_of_army);
+         }
+    }
+ 
+}
